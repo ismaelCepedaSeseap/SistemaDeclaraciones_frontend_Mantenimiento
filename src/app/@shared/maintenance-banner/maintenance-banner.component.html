@@ -1,0 +1,11 @@
+<div *ngIf="showBanner" class="maintenance-banner">
+  <div class="banner-content">
+    <p>
+      <strong>Aviso de Mantenimiento:</strong> El servicio no estará disponible el día viernes 6 de febrero de 2026.
+      Reanudando el servicio con normalidad el día sábado 7 de febrero.
+    </p>
+    <button (click)="closeBanner()" class="close-button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

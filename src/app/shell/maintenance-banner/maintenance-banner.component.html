@@ -1,0 +1,17 @@
+<div *ngIf="visible" class="maintenance-banner mat-elevation-z2" role="region" aria-label="Aviso de mantenimiento">
+  <div class="banner-content">
+    <mat-icon class="icon">info</mat-icon>
+    <div class="text">
+      <div class="title">Ventana de mantenimiento</div>
+      <div class="message">
+        El sistema permanecerá fuera de servicio el día
+        <strong>viernes 13 de febrero del 2026</strong>. El sistema estará disponible a partir del
+        <strong>Sábado 14 de febrero</strong>.
+      </div>
+    </div>
+
+    <button *ngIf="closable" mat-icon-button aria-label="Cerrar aviso" class="close-button" (click)="dismiss()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
