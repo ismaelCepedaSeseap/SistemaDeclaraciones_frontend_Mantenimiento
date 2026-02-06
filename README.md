@@ -151,3 +151,5 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
+#   S i s t e m a D e c l a r a c i o n e s _ f r o n t e n d _ M a n t e n i m i e n t o  
+ 
