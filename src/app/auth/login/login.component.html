@@ -1,5 +1,7 @@
 <div fxFill fxLayout="column" fxLayoutAlign="center">
   <app-header></app-header>
+  <app-maintenance-banner [closable]="false" [autoHideMs]="0"></app-maintenance-banner>
+  <app-maintenance-overlay></app-maintenance-overlay>
   <mat-toolbar class="background-white title-toolbar">
     <label class="step-title">Iniciar sesión</label>
   </mat-toolbar>

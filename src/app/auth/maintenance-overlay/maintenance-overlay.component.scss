@@ -1,0 +1,198 @@
+.maintenance-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(255 255 255 / 95%);
+            color: #1e293b;
+            z-index: 1200;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(#35428f 1px, #00000061 0);
+            background-size: 40px 40px;
+            opacity: 1.1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2.5rem;
+            max-width: 820px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            border: 1px solid #f1f5f9;
+        }
+
+        .brand {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pdn-logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .brand-sub {
+            margin-left: 12px;
+            padding-left: 12px;
+            border-left: 1px solid rgba(73, 78, 195, .42);
+            font-size: 1.52rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: none;
+            text-align: left;
+        }
+
+        .maintenance-icon {
+            margin: 1.5rem 0;
+        }
+
+        .icon-circle {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 96px;
+              height: 96px;
+              border-radius: 9999px;
+              background: #ffffff;
+              border: 1px solid rgb(115 101 177 / 55%);
+              box-shadow: 0 0 20px rgb(0 188 212 / 25%);
+        }
+
+        .icon {
+            font-size: 36px;
+            color: #00bcd4;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            line-height: 1.05;
+            margin-top: 1.5rem;
+            margin-bottom: .75rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            color: #475569;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: #008ba3;
+            font-weight: 700;
+        }
+
+        .progress {
+            width: 100%;
+            max-width: 320px;
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 999px;
+            overflow: hidden;
+            margin: 1rem auto 1.75rem;
+        }
+
+        .progress-bar {
+            width: 66%;
+            height: 100%;
+            background: #00bcd4;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+            border-radius: 999px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .label {
+            font-size: 10px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .value {
+            color: #1e293b;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #00bcd4;
+            border-radius: 999px;
+            box-shadow: 0 0 6px #00bcd4;
+            animation: ping 1.5s infinite;
+        }
+
+        @keyframes ping {
+            0% { transform: scale(1); opacity: 1 }
+            75% { transform: scale(1.5); opacity: 0.3 }
+            100% { transform: scale(1); opacity: 1 }
+        }
+
+        .overlay-footer {
+            position: absolute;
+            bottom: 18px;
+            color: #94a3b8;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            z-index: 2;
+        }
+
+        @media (max-width: 600px) {
+            .content { padding: 1.5rem; margin: 1rem; }
+            .brand-sub { display: none; }
+            .title { font-size: 1.4rem }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Estilo base para pantallas grandes (Desktop) */
+.content {
+  width: 90%;           /* Permite que crezca */
+  max-width: 950px;     /* Lo hacemos más ancho que el estándar (antes suele ser 500px) */
+  margin: 0 auto;       /* Lo mantiene centrado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ajuste para resoluciones pequeñas (Móvil/Tablet) */
+@media (max-width: 768px) {
+  .content {
+    /* Aplicamos tu requerimiento específico del 55% */
+    max-width: 55% !important; 
+    width: 55%;
+  }
+}

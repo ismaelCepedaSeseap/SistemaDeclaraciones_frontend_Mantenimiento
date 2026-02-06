@@ -7,9 +7,9 @@
 import { env } from './.env';
 
 export const environment = {
-  production: true,
+  production: false,
   version: env.npm_package_version,
-  serverUrl: 'http://0.0.0.0:3000',
+  serverUrl: 'https://s1captura.pdepuebla.org.mx:8443/api',
   pageUrl: 'http://localhost:4200/',
   defaultLanguage: 'es-ES',
   supportedLanguages: ['es-ES'],
