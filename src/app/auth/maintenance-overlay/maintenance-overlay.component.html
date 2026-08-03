@@ -1,9 +1,10 @@
 <div *ngIf="visible" class="maintenance-overlay">
   <div class="bg-pattern"></div>
+  <div class="overlay-gradient"></div>
 
-  <main class="content" role="dialog" aria-labelledby="maintenance-title">
+  <main class="content glass-panel" role="dialog" aria-labelledby="maintenance-title">
     <div class="brand">
-      <img _ngcontent-dst-c196="" src="assets/pdn.png" alt="PDN" class="pdn-logo">
+      <img src="assets/pdn.png" alt="PDN" class="pdn-logo">
       <div class="brand-sub">Declaración Patrimonial<br>y de Intereses</div>
     </div>
 
@@ -13,9 +14,8 @@
       </div>
     </div>
 
-    <h1 id="maintenance-title" class="title">Sitio en mantenimiento</h1>
-
-    
+    <h1 id="maintenance-title" class="title">{{ overlay.title }}</h1>
+    <p class="subtitle">{{ overlay.subtitle }}</p>
 
     <div class="progress" aria-hidden="true">
       <div class="progress-bar"></div>
@@ -23,15 +23,15 @@
 
     <div class="info-grid">
       <div class="info-box">
-        <div class="label">Estado del Sistema</div>
-        <div class="value"><span class="dot"></span>Actualizando</div>
+        <div class="label">{{ overlay.statusLabel }}</div>
+        <div class="value"><span class="dot"></span>{{ overlay.statusValue }}</div>
       </div>
       <div class="info-box">
-        <div class="label">Reanudación del Sistema</div>
-        <div class="value">Sábado 14 de febrero</div>
+        <div class="label">{{ overlay.resumeLabel }}</div>
+        <div class="value">{{ overlay.resumeValue }}</div>
       </div>
     </div>
   </main>
 
-  <footer class="overlay-footer">Plataforma Digital Nacional © 2024</footer>
+  <footer class="overlay-footer">Plataforma Digital Nacional © 2025</footer>
 </div>

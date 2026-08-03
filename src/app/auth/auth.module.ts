@@ -28,5 +28,6 @@ import { SignupComponent } from './signup/signup.component';
     AuthRoutingModule,
   ],
   declarations: [LoginComponent, ForgotPasswordComponent, ResetPasswordComponent, SignupComponent, MaintenanceOverlayComponent],
+  exports: [MaintenanceOverlayComponent],
 })
 export class AuthModule {}

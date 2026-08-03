@@ -1,0 +1,22 @@
+{
+  "version": "maintenance-2026-07-03-1730",
+  "refreshMs": 30000,
+  "banner": {
+    "enabled": false,
+    "startAt": "2026-07-31T10:33:00-06:00",
+    "endAt": "2026-08-31T01:38:00-06:00",
+    "title": "Ventana de mantenimiento",
+    "message": "El sistema permanecerá fuera de servicio hoy 3 de julio de 2026 de 17:30 a 17:35 h."
+  },
+  "overlay": {
+    "enabled": false,
+    "startAt": "2026-07-31T10:38:00-06:00",
+    "endAt": "2026-08-01T10:43:00-06:00",
+    "title": "Sitio en mantenimiento",
+    "subtitle": "Estamos realizando mejoras para brindarte un mejor servicio.",
+    "statusLabel": "Estado del Sistema",
+    "statusValue": "Actualizando",
+    "resumeLabel": "Reanudación del Sistema",
+    "resumeValue": "Hoy 3 de julio de 2026, 17:35 h"
+  }
+}

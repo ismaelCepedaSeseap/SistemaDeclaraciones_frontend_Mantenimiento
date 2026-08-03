@@ -64,6 +64,7 @@ export const updateUserProfile = gql`
       segundoApellido
       curp
       rfc
+      roles
       institucion {
         clave
         valor

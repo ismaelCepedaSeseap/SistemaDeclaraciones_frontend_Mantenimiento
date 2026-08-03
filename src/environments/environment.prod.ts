@@ -9,7 +9,7 @@ import { env } from './.env';
 export const environment = {
   production: false,
   version: env.npm_package_version,
-  serverUrl: 'https://s1captura.pdepuebla.org.mx:8443/api',
+   serverUrl: 'http://192.168.0.111/api',
   pageUrl: 'http://localhost:4200/',
   defaultLanguage: 'es-ES',
   supportedLanguages: ['es-ES'],

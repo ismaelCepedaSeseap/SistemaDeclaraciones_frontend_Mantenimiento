@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
       imports: [RouterTestingModule, TranslateModule.forRoot(), CoreModule],
       declarations: [AppComponent],
       providers: [],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

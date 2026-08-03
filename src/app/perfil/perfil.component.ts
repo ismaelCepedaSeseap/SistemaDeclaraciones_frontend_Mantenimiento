@@ -46,9 +46,22 @@ export class PerfilComponent implements OnInit {
 
   async loadInstituciones() {
     this.institucionesCatalogo = await this.catalogoService.getInstituciones().then((data) => data);
+    this.updateInstitucionFieldState();
+  }
+
+  private updateInstitucionFieldState() {
+    // Permitir cambiar institución a todos los roles (USER, ADMIN, SUPER_ADMIN) si hay catálogo
     if (this.institucionesCatalogo?.length) {
       this.profileForm.get('institucion').enable();
+    } else {
+      this.profileForm.get('institucion').disable();
     }
+  }
+
+  private isUserRole(): boolean {
+    const roles = (this.user?.roles || []).map((r: string) => r?.toLowerCase());
+    const hasUserRole = roles.includes('user');
+    return hasUserRole;
   }
 
   confirmChangePassword() {
@@ -139,6 +152,8 @@ export class PerfilComponent implements OnInit {
         const optTitular = this.institucionesCatalogo.filter((ti: any) => ti.clave === ins.clave);
         this.profileForm.get('institucion').setValue(optTitular[0]);
       }
+
+      this.updateInstitucionFieldState();
     } catch (error) {
       console.log(error);
     }

@@ -57,12 +57,15 @@ export class DeclaracionesComponent implements AfterViewInit, OnInit {
   pageSizeOptions = [5, 10, 25, 100];
   userInstitucion: Catalogo = null;
 
+  // Filter fields
+  searchValue: string = '';
+
   // Sujetos para controlar los eventos de las tablas
   private tableUpdate$ = new Subject<void>();
   private currentPaginator: MatPaginator;
   private currentSort: MatSort;
   private currentFilterType: string | null = null;
-  
+
   constructor(
     private route: ActivatedRoute,
     private apollo: Apollo,
@@ -100,7 +103,7 @@ export class DeclaracionesComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     // Configura la tabla inicial
     this.updateCurrentTable(0);
-    
+
     // Una única suscripción que reacciona a los cambios
     this.tableUpdate$
       .pipe(
@@ -116,8 +119,15 @@ export class DeclaracionesComponent implements AfterViewInit, OnInit {
               direction: this.currentSort.direction,
             },
           };
+          const filter: any = {};
           if (this.currentFilterType) {
-            variables.filter = { tipoDeclaracion: this.currentFilterType };
+            filter.tipoDeclaracion = this.currentFilterType;
+          }
+          if (this.searchValue.trim()) {
+            filter.declaranteNombre = this.searchValue.trim();
+          }
+          if (Object.keys(filter).length > 0) {
+            variables.filter = filter;
           }
           return this.apollo.query<{ declaracionesMetadata: DeclaracionMetadataPage }>({
             query: declaracionesMetadata,
@@ -131,10 +141,18 @@ export class DeclaracionesComponent implements AfterViewInit, OnInit {
           const docs = data.declaracionesMetadata.docs;
           // Asigna los datos al dataSource correcto
           switch (this.tabGroup.selectedIndex) {
-            case 0: this.data = docs; break;
-            case 1: this.dataInicial = docs; break;
-            case 2: this.dataModificacion = docs; break;
-            case 3: this.dataConclusion = docs; break;
+            case 0:
+              this.data = docs;
+              break;
+            case 1:
+              this.dataInicial = docs;
+              break;
+            case 2:
+              this.dataModificacion = docs;
+              break;
+            case 3:
+              this.dataConclusion = docs;
+              break;
           }
           // No necesitamos devolver nada aquí porque ya actualizamos el dataSource
           return;
@@ -171,12 +189,27 @@ export class DeclaracionesComponent implements AfterViewInit, OnInit {
     });
   }
   // Este método se dispara por los eventos (sortChange) y (page) del HTML
-  triggerTableUpdate(event: Sort | any) {
+  triggerTableUpdate(event?: Sort | any) {
     // Si es un evento de ordenamiento, regresa a la primera página
-    if ((event as Sort).direction !== undefined) {
+    if (event && (event as Sort).direction !== undefined) {
       this.currentPaginator.pageIndex = 0;
     }
     this.tableUpdate$.next();
+  }
+
+  clearSearch() {
+    this.searchValue = '';
+    if (this.currentPaginator) {
+      this.currentPaginator.pageIndex = 0;
+    }
+    this.tableUpdate$.next();
+  }
+
+  onSearchChange(value: string) {
+    this.searchValue = value;
+    if (!value.trim()) {
+      this.clearSearch();
+    }
   }
 
   private updateCurrentTable(index: number) {
